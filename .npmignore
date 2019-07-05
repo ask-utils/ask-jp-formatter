@@ -4,3 +4,4 @@ __tests__/
 tsconfig.json
 .vscode/
 docs/
+.rpt2_cache/
