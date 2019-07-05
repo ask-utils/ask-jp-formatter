@@ -1,6 +1,6 @@
 {
   "name": "ask-jp-formatter",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Simple formatter for Japanese Alexa Skill content.",
   "main": "dist/index.js",
   "scripts": {
