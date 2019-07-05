@@ -2,27 +2,73 @@
   "name": "ask-jp-formatter",
   "version": "1.0.0",
   "description": "Simple formatter for Japanese Alexa Skill content.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "build": "rollup -c",
+    "tsc": "tsc",
     "test": "jest",
-    "type": "tsc",
-    "lint": "eslint ./",
-    "doc": "jsdoc -c ./jsdoc.json"
+    "lint": "eslint 'libs/**/*.{ts,tsx}'",
+    "doc": "typedoc --out docs libs/",
+    "postversion": "git push origin $(git describe --abbrev=0 --tags)",
+    "test:watch": "jest --watch",
+    "test:dev": "jest --watch --silent=false --verbose false --coverage"
   },
   "keywords": [],
   "author": "Hidetaka Okamoto <info@wp-kyoto.net> (https://wp-kyoto.net)",
   "license": "MIT",
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.json"
+      }
+    },
+    "testMatch": [
+      "**/__tests__/*.+(ts|tsx|js)"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
   "devDependencies": {
-    "docdash": "^1.0.0",
-    "eslint": "^5.8.0",
+    "@types/jest": "^24.0.15",
+    "@types/node": "^12.0.12",
+    "@typescript-eslint/eslint-plugin": "^1.11.0",
+    "@typescript-eslint/parser": "^1.11.0",
+    "@typescript-eslint/typescript-estree": "^1.11.0",
+    "ask-sdk": "^2.6.0",
+    "ask-sdk-core": "^2.6.0",
+    "ask-sdk-model": "^1.18.0",
+    "aws-sdk": "^2.488.0",
+    "eslint": "^6.0.1",
     "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^8.0.0",
-    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
+    "husky": "^3.0.0",
     "jest": "^24.8.0",
-    "jsdoc": "^3.6.2",
-    "power-assert": "^1.6.1",
-    "typescript": "^3.1.6"
+    "lint-staged": "^9.0.2",
+    "rollup": "^1.16.6",
+    "rollup-plugin-typescript2": "^0.21.2",
+    "ts-jest": "^24.0.2",
+    "tslib": "^1.10.0",
+    "typedoc": "^0.14.2",
+    "typescript": "^3.5.2"
   }
 }

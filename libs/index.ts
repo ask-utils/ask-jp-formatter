@@ -2,7 +2,7 @@
  * 文語調を口語調に変換する
  * @param {string} desc content
  */
-const replaceDescription = desc => {
+export const replaceDescription = (desc: string): string => {
   let content = desc
   if (/である。/g.test(desc)) content = content.replace(/である。/g, 'です。')
   if (/する。/g.test(desc)) content = content.replace(/する。/g, 'します。')
@@ -18,7 +18,7 @@ const replaceDescription = desc => {
  * Alexaで発話できない記号を変換する
  * @param {string} desc content for Alexa SSML
  */
-const replaceSpeechContent = desc => {
+export const replaceSpeechContent = (desc: string): string => {
   let content = desc
   if (/『/g.test(desc)) content = content.replace(/『/g, '')
   if (/』/g.test(desc)) content = content.replace(/』/g, '')
@@ -31,17 +31,11 @@ const replaceSpeechContent = desc => {
  * ラベル表記を修正したい時用
  * @param {string} desc content
  */
-const replaceLabel = desc => {
+export const replaceLabel = (desc: string): string => {
   let content = desc
   content = content.replace(/http:\/\/ja.dbpedia.org\/resource\//g, '')
   if (/『/g.test(desc)) content = content.replace(/『/g, '「')
   if (/』/g.test(desc)) content = content.replace(/』/g, '」')
   if (/&/g.test(desc)) content = content.replace(/&/g, '＆')
   return content
-}
-
-module.exports = {
-  replaceLabel,
-  replaceSpeechContent,
-  replaceDescription
 }
