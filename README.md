@@ -1,4 +1,5 @@
 # Alexa Japanese content formatter
+Alexaでの発話を日本語化する際のヘルパー関数です。
 
 ## Getting started
 
