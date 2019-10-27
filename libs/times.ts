@@ -7,7 +7,7 @@ moment.tz.setDefault('Asia/Tokyo')
  * あいさつを時間によって出し分ける
  * @param time
  */
-export const getGreedingMessage = (time: moment.Moment = moment()) => {
+export const getGreedingTextByTime = (time: moment.Moment = moment()) => {
     const date = time.toDate()
     const hours = date.getHours()
     if (hours < 11) {
@@ -35,4 +35,12 @@ export const getGreedingMessage = (time: moment.Moment = moment()) => {
             'お疲れ様です'
         )
     ])
+}
+
+/**
+ * あいさつを時間によって出し分ける
+ * @param time
+ */
+export const getGreedingMessage = (time: moment.Moment = moment()) => {
+    return `${getGreedingTextByTime(time)}。`
 }
