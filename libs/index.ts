@@ -1,4 +1,5 @@
 export * from './speechcon'
+export * from './times'
 /**
  * 文語調を口語調に変換する
  * @param {string} desc content

@@ -47,6 +47,7 @@
   },
   "devDependencies": {
     "@types/jest": "^24.0.15",
+    "@types/moment-timezone": "^0.5.12",
     "@types/node": "^12.0.12",
     "@typescript-eslint/eslint-plugin": "^1.11.0",
     "@typescript-eslint/parser": "^1.11.0",
@@ -70,5 +71,9 @@
     "tslib": "^1.10.0",
     "typedoc": "^0.14.2",
     "typescript": "^3.5.2"
+  },
+  "dependencies": {
+    "@ask-utils/core": "^3.2.2",
+    "moment-timezone": "^0.5.27"
   }
 }
